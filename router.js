@@ -8,7 +8,6 @@ function route(request, response) {
   } else {
     fs.readFile('./public' + request.url, 'utf-8', function (err, data) {
       if (err) {
-        // throw err;
         console.log(err);
         response.writeHead('404', {
           'Content-Type': 'text/plain'
