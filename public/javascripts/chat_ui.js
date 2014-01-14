@@ -12,7 +12,11 @@ $(function(root) {
     $('#chat_message').on("submit", function(e){
       e.preventDefault();
       that.message = $('#message_text').val();
-      that.chat.sendMessage(that.message);
+      if(that.message.match(/^\//)) {
+        that.chat.processCommand(that.message);
+      } else {
+        that.chat.sendMessage(that.message);
+      }
       $('#message_text').val("");
     });
   }
